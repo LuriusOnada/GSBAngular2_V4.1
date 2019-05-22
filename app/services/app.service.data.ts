@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataService {
-    private  urlDomaine :  string = "https://exam:444";
+    private  urlDomaine :  string = "http://gsb-rest.dev.slam";
     visiteur : any;
 
     constructor(private http: Http) {}
@@ -33,7 +33,7 @@ export class DataService {
 
     public majMedecin(id : string ,adresse : string, tel :string, spe : string) {
         let url : string =  this.urlDomaine + "/majmedecin?idmedecin=" + id + "&adresse=" + adresse + "&tel=" + tel +"&specialite=" + spe;
-        let req = this.http.get(url)
+        let req = this.http.get(url);
 
         return req;
     }
@@ -47,7 +47,7 @@ export class DataService {
 
     public majRapport(idRapport : string, motif : string, bilan : string){
         let url : string =  this.urlDomaine + "/majrapport?idRapport=" + idRapport + "&motif=" + motif + "&bilan=" + bilan;
-        let req = this.http.get(url)
+        let req = this.http.get(url);
 
         return req;
     }

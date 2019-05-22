@@ -15,7 +15,7 @@ require("rxjs/add/operator/map");
 var DataService = /** @class */ (function () {
     function DataService(http) {
         this.http = http;
-        this.urlDomaine = "https://exam:444";
+        this.urlDomaine = "http://gsb-rest.dev.slam";
     }
     DataService.prototype.connexion = function (loginIn, mdpIn) {
         var url = this.urlDomaine + "/connexion?login=" + loginIn + "&mdp=" + mdpIn;
