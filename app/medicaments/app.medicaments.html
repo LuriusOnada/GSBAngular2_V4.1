@@ -1,0 +1,31 @@
+<my-navbar></my-navbar>
+
+<a (click)="afficher()" *ngIf="!test">Afficher la liste</a>
+<a (click)="cacher()" *ngIf="test">Cacher la liste</a>
+
+<table class="table table-bordered" *ngIf="test">
+    <tr>
+        <th>Nom commercial du médicament</th>
+        <th>Quantité donné</th>
+    </tr>
+    <tr *ngFor="let medicament of lesDonsMedicaments">
+        <td>{{medicament.nomCommercial }} </td>
+        <td>{{medicament.nombreDon }}  </td>
+    </tr>
+</table>
+
+<div *ngIf="!test">
+    <div class="col-lg-6">
+        <div class="form-group">
+            <input type="search" [(ngModel)]="nomMedicament" (keyup)="chercher()" placeholder="Nom du médicament..." name="nomMedicament" />
+        </div>
+    </div>
+    <br><br>
+    <div class="list-group">
+        <ul>
+            <li class="list-group-item" *ngFor="let medicament of lesMedicaments">
+                {{medicament.nomCommercial }}
+            </li>
+        </ul>
+    </div>
+</div>

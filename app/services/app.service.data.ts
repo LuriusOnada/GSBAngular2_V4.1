@@ -59,6 +59,13 @@ export class DataService {
         return req;
     }
 
+    public chargerDonMedicaments(){
+        let url : string =  this.urlDomaine + "/donmedicaments";
+        let req = this.http.get(url).map((r: Response)=>r.json());
+
+        return req;
+    }
+
     public enregistrerRapport(idVisiteur : string, idMedecin : string, motif : string,date : Date, bilan : string,lesMedicaments : Array<any> ){
         let url : string =  this.urlDomaine + "/nouveaurapport?idVisiteur=" + idVisiteur + "&motif=" + motif + "&bilan=" + bilan + "&idMedecin=" + idMedecin +"&date="+ date;
         lesMedicaments.forEach((med) => {
